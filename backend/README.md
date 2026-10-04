@@ -212,11 +212,13 @@ print(f'Processed: {result.summary.analyzed} texts')
 python scripts/db_health_check.py
 ```
 
-### Verify TPM Optimization
+### Verify FinBERT Tone Helper
 
 ```bash
-python scripts/verify_tpm_fix.py
+python scripts/verify_finbert_tone.py
 ```
+
+> Note: `scripts/verify_tpm_fix.py` is referenced in older notes but is **not present** in this tree. Use `verify_finbert_tone.py` instead.
 
 ---
 
@@ -229,6 +231,8 @@ python scripts/verify_tpm_fix.py
 | 429 errors from Gemini | Fixed in v1.0.0 - ensure TPM limits are configured |
 | Low sentiment confidence | Set `VERIFICATION_MODE=all` in .env |
 | Pipeline not running | Check scheduler: `curl http://localhost:8000/api/admin/scheduler/jobs` |
+| Backend `pytest` cannot collect / `No module named pytest` | Create and activate a backend venv first (`cd backend && python3.11 -m venv venv && source venv/bin/activate && pip install -r requirements.txt`). System Homebrew Python (e.g. 3.14) and bare pyenv 3.11 often lack project deps; do not run pytest against system Python. |
+| Missing `scripts/verify_tpm_optimization.py` | Script is absent; use `scripts/verify_finbert_tone.py` for FinBERT tone checks. |
 
 ### Enable Debug Logging
 
@@ -263,6 +267,8 @@ See full API documentation at `http://localhost:8000/api/docs` when running.
 | `clear_tables.py` | Reset data (dev only) |
 | `reprocess_sentiment_data.py` | Reprocess with updated model |
 | `backfill_stock_mentions.py` | Backfill missing data |
+| `verify_finbert_tone.py` | Spot-check FinBERT tone labelling |
+| `check_sources.py` | Validate news source collectors |
 
 ---
 

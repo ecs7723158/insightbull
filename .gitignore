@@ -29,3 +29,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local anime/waifu assets (do not commit binaries)
+public/waifu/
