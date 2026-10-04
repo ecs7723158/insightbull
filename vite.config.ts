@@ -5,8 +5,9 @@ import path from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
-    port: 8080,
+    host: "0.0.0.0",
+    port: 8081,
+    strictPort: true,
     proxy: {
       "/api": {
         target: "http://localhost:8000",
@@ -14,6 +15,11 @@ export default defineConfig(({ mode }) => ({
         secure: false,
       },
     },
+  },
+  preview: {
+    host: "0.0.0.0",
+    port: 8081,
+    strictPort: true,
   },
   plugins: [
     react(),
