@@ -9,11 +9,13 @@ from .stocks import router as stocks_router
 from .analysis import router as analysis_router
 from .pipeline import router as pipeline_router
 from .admin import router as admin_router
+from .trading_extension import trading_router
 
 __all__ = [
     "dashboard_router", 
     "stocks_router", 
     "analysis_router", 
     "pipeline_router",
-    "admin_router"
+    "admin_router",
+    "trading_router"
 ]

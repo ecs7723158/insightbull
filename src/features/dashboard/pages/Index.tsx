@@ -17,6 +17,7 @@ import DashboardSkeleton from "@/features/dashboard/components/DashboardSkeleton
 import { formatTimeAgo } from "@/shared/utils/timezone";
 import { usePipelineNotifications } from "@/shared/hooks/usePipelineNotifications";
 import { useToast } from "@/shared/hooks/use-toast";
+import { KawaiiHeroBanner } from "@/features/dashboard/components/KawaiiHeroBanner";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -97,7 +98,10 @@ const Index = () => {
   if (validation.isEmpty) {
     return (
       <UserLayout>
-        <EmptyPipelineState />
+        <div className="space-y-6">
+          <KawaiiHeroBanner />
+          <EmptyPipelineState />
+        </div>
       </UserLayout>
     );
   }
@@ -202,6 +206,9 @@ const Index = () => {
   return (
     <UserLayout>
       <div className="space-y-8">
+        {/* Anime Waifu Emotion & Quick Navigation Banner */}
+        <KawaiiHeroBanner />
+
         {/* Partial Data Warning */}
         {showWarning && (
           <PartialDataWarning 

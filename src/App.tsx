@@ -30,6 +30,9 @@ import {
   CorrelationAnalysis, 
   SentimentTrends 
 } from "@/features/analysis";
+import { WaifuMoodPage } from "@/features/rpg-waifu/pages/WaifuMoodPage";
+import { SpiderStrategyPage } from "@/features/spider-strategy/pages/SpiderStrategyPage";
+import { TaiwanStockPage } from "@/features/taiwan-trading/pages/TaiwanStockPage";
 import { 
   AdminDashboard, 
   AdminLogin,
@@ -54,6 +57,9 @@ const App = () => (
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<Index />} />
+          <Route path="/rpg-waifu" element={<WaifuMoodPage />} />
+          <Route path="/spider-strategy" element={<SpiderStrategyPage />} />
+          <Route path="/taiwan-stock" element={<TaiwanStockPage />} />
           <Route path="/analysis" element={<StockAnalysis />} />
           <Route path="/sentiment-vs-price" element={<SentimentVsPrice />} />
           <Route path="/correlation" element={<CorrelationAnalysis />} />

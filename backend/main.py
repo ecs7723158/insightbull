@@ -41,7 +41,8 @@ from app.presentation.routes import (
     stocks_router,
     analysis_router,
     pipeline_router,
-    admin_router
+    admin_router,
+    trading_router
 )
 from app.presentation.middleware.logging_middleware import LoggingMiddleware
 from app.presentation.middleware.security_middleware import setup_security_middleware
@@ -307,6 +308,7 @@ def create_app() -> FastAPI:
     app.include_router(analysis_router)   # Analysis endpoints (/api/analysis)
     app.include_router(pipeline_router)   # Pipeline management (admin only)
     app.include_router(admin_router, prefix="/api")  # Admin panel functionality
+    app.include_router(trading_router)                # Trading Extension (/api/v1/trading)
     
     # Global exception handlers
     @app.exception_handler(RequestValidationError)

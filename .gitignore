@@ -30,5 +30,3 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local anime/waifu assets (do not commit binaries)
-public/waifu/

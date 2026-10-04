@@ -1,0 +1,186 @@
+import { TaiwanStockQuote, ThesisCardData } from './types';
+
+export const TAIWAN_STOCKS_DATA: TaiwanStockQuote[] = [
+  {
+    symbol: '2330.TW',
+    name: '台積電',
+    industry: '半導體製造',
+    price: 1025.0,
+    change: 25.0,
+    changePercent: 2.50,
+    volume: 38420,
+    high: 1030.0,
+    low: 1005.0,
+    open: 1010.0,
+    peRatio: 26.4,
+    dividendYield: 1.56,
+    foreignBuy: 14850,
+    trustBuy: 2310,
+    dealerBuy: 840,
+    superConcentration: 87.4, // 千張大戶持股比例
+    retailConcentration: 5.2,
+    monthlyRevenueYoY: 33.8,
+    sentimentScore: 88,
+  },
+  {
+    symbol: '2454.TW',
+    name: '聯發科',
+    industry: 'IC 設計',
+    price: 1315.0,
+    change: 35.0,
+    changePercent: 2.73,
+    volume: 8940,
+    high: 1325.0,
+    low: 1290.0,
+    open: 1295.0,
+    peRatio: 19.8,
+    dividendYield: 4.18,
+    foreignBuy: 3410,
+    trustBuy: 820,
+    dealerBuy: -150,
+    superConcentration: 68.2,
+    retailConcentration: 14.5,
+    monthlyRevenueYoY: 19.2,
+    sentimentScore: 78,
+  },
+  {
+    symbol: '2317.TW',
+    name: '鴻海',
+    industry: '電子代工與 AI 伺服器',
+    price: 198.5,
+    change: 3.5,
+    changePercent: 1.79,
+    volume: 68200,
+    high: 200.0,
+    low: 195.5,
+    open: 196.0,
+    peRatio: 16.2,
+    dividendYield: 2.72,
+    foreignBuy: 21500,
+    trustBuy: 1450,
+    dealerBuy: 1120,
+    superConcentration: 64.9,
+    retailConcentration: 18.2,
+    monthlyRevenueYoY: 21.4,
+    sentimentScore: 82,
+  },
+  {
+    symbol: '2382.TW',
+    name: '廣達',
+    industry: 'AI 伺服器製造',
+    price: 288.0,
+    change: -2.0,
+    changePercent: -0.69,
+    volume: 19500,
+    high: 294.0,
+    low: 286.0,
+    open: 292.0,
+    peRatio: 22.5,
+    dividendYield: 3.12,
+    foreignBuy: -1200,
+    trustBuy: 2100,
+    dealerBuy: 450,
+    superConcentration: 72.1,
+    retailConcentration: 11.8,
+    monthlyRevenueYoY: 28.5,
+    sentimentScore: 64,
+  },
+  {
+    symbol: '0050.TW',
+    name: '元大台灣50',
+    industry: '指數型 ETF',
+    price: 196.2,
+    change: 2.8,
+    changePercent: 1.45,
+    volume: 14200,
+    high: 197.0,
+    low: 194.5,
+    open: 195.0,
+    peRatio: 21.0,
+    dividendYield: 2.30,
+    foreignBuy: 5200,
+    trustBuy: -320,
+    dealerBuy: 1800,
+    superConcentration: 51.5,
+    retailConcentration: 32.4,
+    monthlyRevenueYoY: 0.0,
+    sentimentScore: 72,
+  },
+  {
+    symbol: '2221.TW',
+    name: '大甲',
+    industry: '鋼鐵管配件 (蛛網經典)',
+    price: 32.5,
+    change: 0.8,
+    changePercent: 2.52,
+    volume: 4520,
+    high: 33.2,
+    low: 31.8,
+    open: 32.0,
+    peRatio: 14.1,
+    dividendYield: 4.80,
+    foreignBuy: 320,
+    trustBuy: 0,
+    dealerBuy: 80,
+    superConcentration: 48.2,
+    retailConcentration: 36.1,
+    monthlyRevenueYoY: 8.5,
+    sentimentScore: 68,
+  }
+];
+
+export const DEMO_THESIS_CARD_2330: ThesisCardData = {
+  schema_version: "v0.1.0",
+  ticker: "2330.TW",
+  company: "台灣積體電路製造股份有限公司 (TSMC)",
+  market: "TW",
+  as_of: "2026-10-04",
+  business_one_liner: "全球先進製程與 CoWoS 先進封裝絕對龍頭，AI 加速器代工市佔率突破 90%。",
+  why_might_work: [
+    "N2 (2nm) 與 A16 製程客戶導入進度超前，ASP 與毛利率有望維持 53% 以上高檔",
+    "CoWoS 產能於 2026 年底前翻倍，舒緩全球 AI 晶片供不應求瓶頸",
+    "千張大戶持股達 87.4%，外資三大法人持續淨買超，籌碼結構極度穩固"
+  ],
+  why_might_fail: [
+    "地緣政治風險與海外晶圓廠（美、日、德）折舊與運營成本稀釋初期利潤",
+    "全球半導體景氣非 AI 終端消費市場（手機、PC）復甦不如預期"
+  ],
+  kill_criteria: [
+    "季毛利率跌破 50% 警示線",
+    "千張大戶持股連續三週單週減幅超過 1.5%",
+    "先進封裝 CoWoS 出現重大技術替代或訂單移轉"
+  ],
+  next_update_triggers: [
+    "次季季度法說會營收展望指引",
+    "月營收年增率 (YoY) 是否維持 25% 以上增長",
+    "海外新廠量產良率認證公佈"
+  ],
+  valuation_framework: {
+    method: "Forward P/E Multiple + PEG 跨週期評估",
+    assumptions: [
+      "預估 2026 全年 EPS 達 48-52 元",
+      "給予 22x-26x 前瞻本益比評價區間"
+    ],
+    uncertainty: "medium"
+  },
+  scenarios: {
+    bull: {
+      label: "多",
+      triggers: ["AI 雲端巨頭資本支出持續上調 20% 以上", "N2 提前於 2026H1 滿載量產"],
+      thesis_implication: "先進製程市佔擴大，目標前瞻本益比挑戰 28x，目標價上看 1350-1450 元。"
+    },
+    base: {
+      label: "中",
+      triggers: ["CoWoS 產能如期翻倍，AI 需求穩健成長", "外資持股維持 74% 水位"],
+      thesis_implication: "合理反應年增動能，目標本益比 24x，合理區間在 1100-1200 元。"
+    },
+    bear: {
+      label: "空",
+      triggers: ["非 AI 需求持續疲軟", "海外廠資本支出大幅膨脹導致自由現金流收窄"],
+      thesis_implication: "評價壓縮至 18x，防守回踩 880-920 元，需觸發避險保護結界。"
+    }
+  },
+  status: "DONE",
+  disclaimer: "僅供研究與教育，不構成投資建議。No buy/sell orders, no guaranteed price predictions.",
+  position_policy: "使用者自決；FIN 不下令、不下單。"
+};
