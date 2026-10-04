@@ -84,6 +84,7 @@ const AdminDashboard: React.FC = () => {
     { id: 'newsapi', name: 'NewsAPI', description: 'General news sources' },
     { id: 'gdelt', name: 'GDELT', description: 'Global event database' },
     { id: 'yfinance', name: 'Yahoo Finance', description: 'Stock prices and news' },
+    { id: 'rss', name: 'RSS & Financial Feeds', description: 'Google News, Yahoo Finance & 鉅亨網 feeds' },
   ];
   const [selectedDataSources, setSelectedDataSources] = useState<string[]>(
     availableDataSources.map(s => s.id)

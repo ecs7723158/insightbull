@@ -323,6 +323,37 @@ COLLECTOR_SETTINGS: Dict[str, SourceSettings] = {
         
         # Sentiment - FinBERT for financial news
         sentiment_model="finbert"
+    ),
+
+    # -------------------------------------------------------------------------
+    # RSS FEEDS (Google News / Yahoo Finance / 鉅亨網 Financial Feeds)
+    # -------------------------------------------------------------------------
+    # Protocol: RSS 2.0 / Atom XML via HTTP
+    # Limits: Completely free and highly reliable, no API key required
+    # Best for: Real-time stock news, breaking market sentiment, Taiwan & US stocks
+    # -------------------------------------------------------------------------
+    "rss": SourceSettings(
+        name="rss",
+        display_name="RSS Feeds (Google News / Yahoo / 鉅亨網)",
+        requires_api_key=False,
+        requests_per_minute=120,
+        requests_per_hour=7200,
+        daily_quota=None,
+        collection_mode=CollectionMode.PARALLEL,
+        max_concurrent_requests=5,
+        batch_size=5,
+        delay_between_requests=0.1,
+        delay_between_symbols=0.1,
+        max_items_per_symbol=25,
+        max_items_per_request=100,
+        min_relevance_score=0.4,
+        prefer_recent=True,
+        include_comments=False,
+        cache_ttl_seconds=180,
+        max_retries=3,
+        initial_retry_delay=0.5,
+        max_retry_delay=30.0,
+        sentiment_model="finbert"
     )
 }
 

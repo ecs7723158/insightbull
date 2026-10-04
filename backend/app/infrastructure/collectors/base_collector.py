@@ -30,6 +30,8 @@ class DataSource(Enum):
     NEWSAPI = "newsapi"
     GDELT = "gdelt"
     YFINANCE = "yfinance"
+    RSS = "rss"
+
 
 
 @dataclass

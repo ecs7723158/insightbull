@@ -30,6 +30,7 @@ from ..infrastructure.collectors.finnhub_collector import FinHubCollector
 from ..infrastructure.collectors.newsapi_collector import NewsAPICollector
 from ..infrastructure.collectors.gdelt_collector import GDELTCollector
 from ..infrastructure.collectors.yfinance_collector import YFinanceCollector
+from ..infrastructure.collectors.rss_collector import RSSCollector
 from ..infrastructure.rate_limiter import RateLimitHandler, RequestPriority
 from ..data_access.repositories.sentiment_repository import SentimentDataRepository
 from ..data_access.repositories.stock_repository import StockRepository
@@ -75,6 +76,7 @@ class PipelineConfig:
     include_newsapi: bool = True
     include_gdelt: bool = True
     include_yfinance: bool = True
+    include_rss: bool = True
     include_comments: bool = True
     parallel_collectors: bool = True
     processing_config: Optional[ProcessingConfig] = None
@@ -381,6 +383,14 @@ class DataPipeline:
                     rate_limiter=self.rate_limiter
                 )
             
+            # RSS collector (no API key required)
+            try:
+                self._collectors["rss"] = RSSCollector(
+                    rate_limiter=self.rate_limiter
+                )
+            except Exception as e:
+                self.logger.warning(f"Failed to configure RSS collector: {str(e)}", component="pipeline")
+            
             self.logger.info(f"Configured {len(self._collectors)} collectors")
             
         except Exception as e:
@@ -475,6 +485,16 @@ class DataPipeline:
                 self.logger.info("YFinance collector configured (no API key required)", component="pipeline")
             except Exception as e:
                 self.logger.warning(f"Failed to configure YFinance collector: {str(e)}", component="pipeline")
+            
+            # RSS Feed collector (no API key required - highly reliable)
+            try:
+                self._collectors["rss"] = RSSCollector(
+                    rate_limiter=self.rate_limiter
+                )
+                collectors_configured += 1
+                self.logger.info("RSS collector configured (Google News / Yahoo / 鉅亨網)", component="pipeline")
+            except Exception as e:
+                self.logger.warning(f"Failed to configure RSS collector: {str(e)}", component="pipeline")
             
             # Clear decrypted keys from memory for security
             # Cache cleared automatically
@@ -934,6 +954,12 @@ class DataPipeline:
                 collectors_to_run.append(("yfinance", self._collectors["yfinance"]))
             else:
                 self.logger.info("YFinance collector is disabled by admin configuration", component="pipeline")
+        
+        if getattr(config, 'include_rss', True) and "rss" in self._collectors:
+            if collector_config_service.is_collector_enabled("rss"):
+                collectors_to_run.append(("rss", self._collectors["rss"]))
+            else:
+                self.logger.info("RSS collector is disabled by admin configuration", component="pipeline")
         
         # Run collectors in parallel or sequential mode
         if config.parallel_collectors:

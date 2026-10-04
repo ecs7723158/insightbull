@@ -51,6 +51,12 @@ DEFAULT_CONFIG = {
             "display_name": "Yahoo Finance",
             "requires_api_key": False,
             "description": "Free financial news from Yahoo Finance"
+        },
+        "rss": {
+            "enabled": True,
+            "display_name": "RSS & Financial Feeds",
+            "requires_api_key": False,
+            "description": "Real-time stock news from Google News, Yahoo Finance & 鉅亨網"
         }
     },
     "ai_services": {

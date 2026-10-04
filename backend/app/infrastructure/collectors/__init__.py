@@ -12,6 +12,7 @@ from .finnhub_collector import FinHubCollector
 from .newsapi_collector import NewsAPICollector
 from .gdelt_collector import GDELTCollector
 from .yfinance_collector import YFinanceCollector
+from .rss_collector import RSSCollector
 
 __all__ = [
     "BaseCollector",
@@ -19,5 +20,6 @@ __all__ = [
     "FinHubCollector",
     "NewsAPICollector",
     "GDELTCollector",
-    "YFinanceCollector"
+    "YFinanceCollector",
+    "RSSCollector"
 ]

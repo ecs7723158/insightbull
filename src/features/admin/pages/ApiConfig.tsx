@@ -39,7 +39,7 @@ const ApiConfig = () => {
       
       const initialFormData: {[key: string]: string} = {};
       Object.entries(data.apis).forEach(([key, config]) => {
-        if (key !== 'hackernews' && key !== 'gdelt' && key !== 'yfinance') {
+        if (key !== 'hackernews' && key !== 'gdelt' && key !== 'yfinance' && key !== 'rss') {
           initialFormData[key] = (config as any).api_key || '';
         }
       });
@@ -148,6 +148,7 @@ const ApiConfig = () => {
       case 'finnhub': return <TrendingUp className="h-5 w-5" />;
       case 'newsapi': return <Newspaper className="h-5 w-5" />;
       case 'yfinance': return <TrendingUp className="h-5 w-5" />;
+      case 'rss': return <Newspaper className="h-5 w-5" />;
       default: return <Database className="h-5 w-5" />;
     }
   };
@@ -159,6 +160,7 @@ const ApiConfig = () => {
       case 'finnhub': return { displayName: 'Finnhub', description: 'Financial market data', requiresKey: true, link: 'https://finnhub.io/register' };
       case 'newsapi': return { displayName: 'NewsAPI', description: 'General news aggregation', requiresKey: true, link: 'https://newsapi.org/register' };
       case 'yfinance': return { displayName: 'Yahoo Finance', description: 'Financial news (unlimited)', requiresKey: false, link: null };
+      case 'rss': return { displayName: 'RSS & Financial Feeds', description: 'Real-time Google News, Yahoo Finance & 鉅亨網 feeds', requiresKey: false, link: null };
       default: return { displayName: name, description: '', requiresKey: true, link: null };
     }
   };

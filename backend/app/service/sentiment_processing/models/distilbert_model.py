@@ -81,7 +81,8 @@ class DistilBERTFinancialModel(SentimentModel):
                 DataSource.NEWSAPI,
                 DataSource.GDELT,
                 DataSource.HACKERNEWS,
-                DataSource.YFINANCE
+                DataSource.YFINANCE,
+                DataSource.RSS
             ],
             max_batch_size=32 if self.use_gpu else 16,  # Faster than FinBERT
             avg_processing_time=80.0 if not self.use_gpu else 30.0

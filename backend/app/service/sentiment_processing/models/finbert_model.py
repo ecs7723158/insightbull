@@ -103,7 +103,8 @@ class FinBERTModel(SentimentModel):
                 DataSource.NEWSAPI,
                 DataSource.GDELT,     # Global news from GDELT -> FinBERT-Tone
                 DataSource.HACKERNEWS, # Community discussions -> FinBERT-Tone
-                DataSource.YFINANCE   # Yahoo Finance news -> FinBERT-Tone
+                DataSource.YFINANCE,   # Yahoo Finance news -> FinBERT-Tone
+                DataSource.RSS        # Financial RSS feeds -> FinBERT-Tone
             ],
             max_batch_size=16 if self.use_gpu else 8,  # Smaller batches for GPU memory
             avg_processing_time=150.0 if not self.use_gpu else 50.0  # CPU vs GPU timing
@@ -809,7 +810,8 @@ class EnsembleFinBERTModel(SentimentModel):
                 DataSource.NEWSAPI,
                 DataSource.GDELT,      # Global news from GDELT -> FinBERT
                 DataSource.HACKERNEWS,
-                DataSource.YFINANCE    # Yahoo Finance news -> FinBERT
+                DataSource.YFINANCE,   # Yahoo Finance news -> FinBERT
+                DataSource.RSS         # Financial RSS feeds -> FinBERT
             ],
             max_batch_size=12 if self.use_gpu else 6,  # Smaller batches due to multiple models
             avg_processing_time=200.0 if not self.use_gpu else 75.0  # Slower due to ensemble

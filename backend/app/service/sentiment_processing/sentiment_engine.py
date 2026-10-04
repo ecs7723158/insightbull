@@ -125,7 +125,8 @@ class SentimentEngine:
             DataSource.FINNHUB: "ProsusAI/finbert",
             DataSource.NEWSAPI: "ProsusAI/finbert",
             DataSource.GDELT: "ProsusAI/finbert",
-            DataSource.YFINANCE: "ProsusAI/finbert"
+            DataSource.YFINANCE: "ProsusAI/finbert",
+            DataSource.RSS: "ProsusAI/finbert"
         }
     
     async def initialize(self) -> None:
