@@ -28,6 +28,14 @@ logger = get_logger()
 
 # Comprehensive static mapping for common stocks
 COMPANY_NAMES = {
+    # Taiwan Stocks (TWSE / TPEx)
+    "2330": "台積電 TSMC (Taiwan Semiconductor)",
+    "2454": "聯發科 MediaTek Inc.",
+    "2317": "鴻海 Hon Hai Precision (Foxconn)",
+    "2382": "廣達 Quanta Computer Inc.",
+    "0050": "元大台灣50 Yuanta Taiwan Top 50 ETF",
+    "2221": "大甲 Ta Chia Jion Well Co.",
+
     # Technology - Large Cap
     "AAPL": "Apple Inc.",
     "MSFT": "Microsoft Corporation",
@@ -138,9 +146,14 @@ _cache_duration = timedelta(hours=24)  # Cache for 24 hours
 
 # Default fallback stocks (same as original DEFAULT_TARGET_STOCKS)
 DEFAULT_FALLBACK_STOCKS = [
-    "NVDA",   # 1. NVIDIA Corporation
-    "MSFT",   # 2. Microsoft Corporation  
-    "AAPL",   # 3. Apple Inc.
+    "2330",   # 1. 台積電 (TSMC)
+    "2454",   # 2. 聯發科 (MediaTek)
+    "2317",   # 3. 鴻海 (Foxconn)
+    "2382",   # 4. 廣達 (Quanta)
+    "0050",   # 5. 元大台灣50 ETF
+    "NVDA",   # 6. NVIDIA Corporation
+    "MSFT",   # 7. Microsoft Corporation  
+    "AAPL",   # 8. Apple Inc.
     "AVGO",   # 4. Broadcom Inc.
     "ORCL",   # 5. Oracle Corporation
     "PLTR",   # 6. Palantir Technologies Inc.

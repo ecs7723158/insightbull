@@ -107,6 +107,7 @@ async def get_stock_analysis_dashboard(
         )
 
 
+@router.get("", response_model=StockList)
 @router.get("/", response_model=StockList)
 async def get_all_stocks(
     limit: int = Query(20, le=100, description="Maximum number of stocks to return"),

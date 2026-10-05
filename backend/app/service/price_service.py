@@ -684,8 +684,9 @@ class RealTimeStockPriceService:
         
         mock_data = {}
         base_prices = {
-            'AAPL': 150.0, 'MSFT': 300.0, 'GOOGL': 140.0, 'AMZN': 130.0, 'META': 300.0,
-            'AMD': 120.0, 'TSLA': 250.0, 'NVDA': 450.0, 'MU': 80.0, 'ADBE': 500.0
+            '2330': 1045.0, '2454': 1380.0, '2317': 210.0, '2382': 295.0, '0050': 185.0, '2221': 68.5,
+            'AAPL': 230.0, 'MSFT': 425.0, 'GOOGL': 185.0, 'AMZN': 190.0, 'META': 580.0,
+            'AMD': 165.0, 'TSLA': 240.0, 'NVDA': 135.0, 'MU': 110.0, 'ADBE': 510.0
         }
         
         for symbol in symbols:
